@@ -12,8 +12,8 @@ const app = express();
 const PORT = ENV?.PORT || 3000;
 
 app.use(express.json());
-// app.use(arcjetMiddleware);
-app.set("trust proxy", 1);
+process.env.ARCJET_ENABLED === "true" ? app.use(arcjetMiddleware) : null;
+app.set("trust proxy", true);
 app.use(hpp());
 app.use(helmet());
 app.use(cors());
