@@ -12,7 +12,7 @@ const app = express();
 const PORT = ENV?.PORT || 3000;
 
 app.use(express.json());
-process.env.ARCJET_ENABLED === "true" ? app.use(arcjetMiddleware) : null;
+ENV.ARCJET_ENABLED === "true" ? app.use(arcjetMiddleware) : null;
 app.set("trust proxy", true);
 app.use(hpp());
 app.use(helmet());

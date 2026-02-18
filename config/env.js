@@ -5,4 +5,5 @@ dotenv.config();
 export const ENV = {
   PORT: process.env.PORT,
   ARCJET_KEY: process.env.ARCJET_KEY,
+  ARCJET_ENABLED: process.env.ARCJET_ENABLED,
 };
