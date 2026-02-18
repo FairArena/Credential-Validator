@@ -1,6 +1,11 @@
 import { aj } from '../config/arcjet.js';
 
 export const arcjetMiddleware = async (req, res, next) => {
+  // If arcjet is not configured, skip middleware
+  if (!aj) {
+    return next();
+  }
+
   try {
     const decision = await aj.protect(req, {
       requested: 1,
